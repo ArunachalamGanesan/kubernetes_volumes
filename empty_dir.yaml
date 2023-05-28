@@ -13,7 +13,7 @@ spec:
       args: ["touch /container1/container1.txt && sleep 3600"]
       volumeMounts:
         - name: shared-data
-            : /container1
+          mountPath: /container1
     - name: container2
       image: alpine
       command: ["/bin/sh", "-c"]

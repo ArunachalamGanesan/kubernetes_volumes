@@ -9,13 +9,15 @@ spec:
   containers:
     - name: container1
       image: alpine
-      command: ['sh', '-c', 'echo The Bench Container 1 is Running ; sleep 3600']
+      command: ["/bin/sh", "-c"]
+      args: ["touch /container1/container1.txt && sleep 3600"]
       volumeMounts:
         - name: shared-data
-          mountPath: /container1
+            : /container1
     - name: container2
       image: alpine
-      command: ['sh', '-c', 'echo The Batch Container is Running ; sleep 3600']
+      command: ["/bin/sh", "-c"]
+      args: ["touch /container2/container2.txt && sleep 3600"]
       volumeMounts:
         - name: shared-data
           mountPath: /container2

@@ -31,5 +31,5 @@ spec:
       volumes:
       - name: hostpath-volume
         hostPath:
-          path: /volumedir
+          path: /workervolume
           type: Directory

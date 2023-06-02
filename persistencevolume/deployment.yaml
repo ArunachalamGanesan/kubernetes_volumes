@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: my-container
+          image: nginx
+          volumeMounts:
+            - name: my-volume
+              mountPath: /usr/share/nginx/html # Replace with the desired mount path inside the container
+      volumes:
+        - name: my-volume
+          persistentVolumeClaim:
+            claimName: my-hostpath-pvc
